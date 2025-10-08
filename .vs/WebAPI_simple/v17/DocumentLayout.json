@@ -7,16 +7,28 @@
       "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\webapi_simple.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|d:\\baitap\\vs\\webapi_simple\\webapi_simple\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|d:\\baitap\\vs\\webapi_simple\\webapi_simple\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|d:\\baitap\\vs\\webapi_simple\\webapi_simple\\repositories\\sqlbookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\repositories\\sqlbookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|d:\\baitap\\vs\\webapi_simple\\webapi_simple\\repositories\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\repositories\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|d:\\baitap\\vs\\webapi_simple\\webapi_simple\\models\\dto\\addbookrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\models\\dto\\addbookrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|d:\\baitap\\vs\\webapi_simple\\webapi_simple\\models\\dto\\bookwithauthorandpublisherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\models\\dto\\bookwithauthorandpublisherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|d:\\baitap\\vs\\webapi_simple\\webapi_simple\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|d:\\baitap\\vs\\webapi_simple\\webapi_simple\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -35,10 +47,6 @@
       "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\models\\domain\\authors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|d:\\baitap\\vs\\webapi_simple\\webapi_simple\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|d:\\baitap\\vs\\webapi_simple\\webapi_simple\\models\\domain\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CD2A7B99-10C4-48AE-894B-FB7441F9544F}|WebAPI_simple\\WebAPI_simple.csproj|solutionrelative:webapi_simple\\models\\domain\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -54,24 +62,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AddBookRequestDTO.cs",
-              "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Models\\DTO\\AddBookRequestDTO.cs",
-              "RelativeDocumentMoniker": "WebAPI_simple\\Models\\DTO\\AddBookRequestDTO.cs",
-              "ToolTip": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Models\\DTO\\AddBookRequestDTO.cs",
-              "RelativeToolTip": "WebAPI_simple\\Models\\DTO\\AddBookRequestDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "SQLBookRepository.cs",
+              "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Repositories\\SQLBookRepository.cs",
+              "RelativeDocumentMoniker": "WebAPI_simple\\Repositories\\SQLBookRepository.cs",
+              "ToolTip": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Repositories\\SQLBookRepository.cs",
+              "RelativeToolTip": "WebAPI_simple\\Repositories\\SQLBookRepository.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAmwKkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T01:37:38.613Z",
+              "WhenOpened": "2025-10-08T01:45:06.347Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
+              "Title": "IBookRepository.cs",
+              "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Repositories\\IBookRepository.cs",
+              "RelativeDocumentMoniker": "WebAPI_simple\\Repositories\\IBookRepository.cs",
+              "ToolTip": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Repositories\\IBookRepository.cs",
+              "RelativeToolTip": "WebAPI_simple\\Repositories\\IBookRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T01:44:42.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "BookWithAuthorAndPublisherDTO.cs",
               "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Models\\DTO\\BookWithAuthorAndPublisherDTO.cs",
               "RelativeDocumentMoniker": "WebAPI_simple\\Models\\DTO\\BookWithAuthorAndPublisherDTO.cs",
@@ -79,33 +100,32 @@
               "RelativeToolTip": "WebAPI_simple\\Models\\DTO\\BookWithAuthorAndPublisherDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T01:37:25.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T01:37:25.274Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "BooksController.cs",
               "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Controllers\\BooksController.cs",
               "RelativeDocumentMoniker": "WebAPI_simple\\Controllers\\BooksController.cs",
               "ToolTip": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Controllers\\BooksController.cs",
               "RelativeToolTip": "WebAPI_simple\\Controllers\\BooksController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAgwDEAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAA1wBcAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-08T01:37:07.545Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\appsettings.json",
-              "RelativeDocumentMoniker": "WebAPI_simple\\appsettings.json",
-              "ToolTip": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\appsettings.json",
-              "RelativeToolTip": "WebAPI_simple\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-08T01:15:15.562Z",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Program.cs",
+              "RelativeDocumentMoniker": "WebAPI_simple\\Program.cs",
+              "ToolTip": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Program.cs",
+              "RelativeToolTip": "WebAPI_simple\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T01:17:23.047Z",
               "EditorCaption": ""
             },
             {
@@ -124,6 +144,30 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "AddBookRequestDTO.cs",
+              "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Models\\DTO\\AddBookRequestDTO.cs",
+              "RelativeDocumentMoniker": "WebAPI_simple\\Models\\DTO\\AddBookRequestDTO.cs",
+              "ToolTip": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Models\\DTO\\AddBookRequestDTO.cs",
+              "RelativeToolTip": "WebAPI_simple\\Models\\DTO\\AddBookRequestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T01:37:38.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\appsettings.json",
+              "RelativeDocumentMoniker": "WebAPI_simple\\appsettings.json",
+              "ToolTip": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\appsettings.json",
+              "RelativeToolTip": "WebAPI_simple\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-08T01:15:15.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "WebAPI_simple\\Data\\AppDbContext.cs",
@@ -131,25 +175,11 @@
               "RelativeToolTip": "WebAPI_simple\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAA1wA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T01:09:33.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T01:09:33.74Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Program.cs",
-              "RelativeDocumentMoniker": "WebAPI_simple\\Program.cs",
-              "ToolTip": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Program.cs",
-              "RelativeToolTip": "WebAPI_simple\\Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAmwCAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T01:17:23.047Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Book_Author.cs",
               "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Models\\Domain\\Book_Author.cs",
               "RelativeDocumentMoniker": "WebAPI_simple\\Models\\Domain\\Book_Author.cs",
@@ -157,12 +187,11 @@
               "RelativeToolTip": "WebAPI_simple\\Models\\Domain\\Book_Author.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T01:07:34.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T01:07:34.376Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Authors.cs",
               "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Models\\Domain\\Authors.cs",
               "RelativeDocumentMoniker": "WebAPI_simple\\Models\\Domain\\Authors.cs",
@@ -170,12 +199,11 @@
               "RelativeToolTip": "WebAPI_simple\\Models\\Domain\\Authors.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T01:02:30.048Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T01:02:30.048Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Publishers.cs",
               "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Models\\Domain\\Publishers.cs",
               "RelativeDocumentMoniker": "WebAPI_simple\\Models\\Domain\\Publishers.cs",
@@ -187,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Books.cs",
               "DocumentMoniker": "D:\\baitap\\vs\\WebAPI_simple\\WebAPI_simple\\Models\\Domain\\Books.cs",
               "RelativeDocumentMoniker": "WebAPI_simple\\Models\\Domain\\Books.cs",
