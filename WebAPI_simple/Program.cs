@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebAPI_simple.Data;
+using WebAPI_simple.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 var app = builder.Build();
-
+// Khai báo Repository
+builder.Services.AddScoped<IBookRepository, SQLBookRepository>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
