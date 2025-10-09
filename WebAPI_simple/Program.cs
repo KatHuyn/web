@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WebAPI_simple.Data;
 using WebAPI_simple.Repositories;
 
@@ -10,13 +10,20 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+//Đăng ký IAuthorRepository và SQLAuthorRepository
+builder.Services.AddScoped<IAuthorRepository, SQLAuthorRepository>();
+//Đăng ký IPublisherRepository và SQLPublisherRepository
+builder.Services.AddScoped<IPublisherRepository, SQLPublisherRepository>();
+// Khai báo Repository
+builder.Services.AddScoped<IBookRepository, SQLBookRepository>();
+builder.Services.AddScoped<IBookAuthorRepository, SQLBookAuthorRepository>();
 // register DB
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString));;
+
 var app = builder.Build();
-// Khai b�o Repository
-builder.Services.AddScoped<IBookRepository, SQLBookRepository>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -28,6 +35,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
 
 app.MapControllers();
 

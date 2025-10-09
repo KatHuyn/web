@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebAPI_simple.CustomActionFilter;
 using WebAPI_simple.Data;
 using WebAPI_simple.Models.DTO;
 using WebAPI_simple.Repositories;
@@ -11,17 +12,21 @@ namespace WebAPI_simple.Controllers
     {
         private readonly AppDbContext _dbContext;
         private readonly IBookRepository _bookRepository;
+        private readonly IPublisherRepository _publisherRepository;
+        private readonly IAuthorRepository _authorRepository;
 
-        public BooksController(AppDbContext dbContext, IBookRepository bookRepository)
+        public BooksController(AppDbContext dbContext, IBookRepository bookRepository, IPublisherRepository publisherRepository, IAuthorRepository authorRepository)
         {
-            _dbContext = dbContext; 
-            _bookRepository = bookRepository; 
+            _dbContext = dbContext;
+            _bookRepository = bookRepository;
+            _publisherRepository = publisherRepository;
+            _authorRepository = authorRepository;
         }
 
         [HttpGet("get-all-books")]
         public IActionResult GetAll()
         {
-            var allBooks = _bookRepository.GetAllBooks(); // Sử dụng Repository
+            var allBooks = _bookRepository.GetAllBooks();
             return Ok(allBooks);
         }
 
@@ -36,13 +41,58 @@ namespace WebAPI_simple.Controllers
             }
             return Ok(bookWithIdDTO);
         }
+        [ValidateModel]
 
+        [ValidateModel]
         [HttpPost("add-book")]
-        public ActionResult AddBook([FromBody] AddBookRequestDTO addBookRequestDTO)
+        public async Task<ActionResult> AddBook([FromBody] AddBookRequestDTO addBookRequestDTO)
         {
+
+            if (addBookRequestDTO.AuthorIds == null || !addBookRequestDTO.AuthorIds.Any())
+            {
+                ModelState.AddModelError(nameof(addBookRequestDTO.AuthorIds), "Book must have at least one author.");
+            }
+
+            if (!await _publisherRepository.ExistsAsync(addBookRequestDTO.PublisherID))
+            {
+                ModelState.AddModelError(nameof(addBookRequestDTO.PublisherID), $"Publisher ID {addBookRequestDTO.PublisherID} does not exist.");
+            }
+
+            if (await _bookRepository.IsTitleUniqueForPublisherAsync(addBookRequestDTO.Title, addBookRequestDTO.PublisherID))
+            {
+                ModelState.AddModelError(nameof(addBookRequestDTO.Title), $"A book with title '{addBookRequestDTO.Title}' already exists for this publisher (ID: {addBookRequestDTO.PublisherID}).");
+            }
+
+            var year = addBookRequestDTO.DateAdded.Year;
+            int publisherLimit = 100;
+            if (await _publisherRepository.GetBooksCountForYearAsync(addBookRequestDTO.PublisherID, year) >= publisherLimit)
+            {
+                ModelState.AddModelError(nameof(addBookRequestDTO.PublisherID), $"Publisher ID {addBookRequestDTO.PublisherID} has reached the limit of {publisherLimit} books in the year {year}.");
+            }
+
+            int authorLimit = 20;
+            foreach (var authorId in addBookRequestDTO.AuthorIds.Distinct())
+            {
+                if (!await _authorRepository.ExistsAsync(authorId))
+                {
+                    ModelState.AddModelError(nameof(addBookRequestDTO.AuthorIds), $"Author ID {authorId} does not exist.");
+                }
+
+                if (await _authorRepository.GetBooksCountAsync(authorId) >= authorLimit)
+                {
+                    ModelState.AddModelError(nameof(addBookRequestDTO.AuthorIds), $"Author ID {authorId} has reached the limit of {authorLimit} published books.");
+                }
+            }
+
+            if (ModelState.ErrorCount > 0)
+            {
+                return BadRequest(ModelState);
+            }
+
             var bookAdd = _bookRepository.AddBook(addBookRequestDTO);
-            return Ok(bookAdd); // Trả về DTO đã thêm
+            return Ok(bookAdd);
         }
+        
 
         [HttpPut("update-book-by-id/{id}")]
         public IActionResult UpdateBookById(int id, [FromBody] AddBookRequestDTO bookDTO)
@@ -63,7 +113,31 @@ namespace WebAPI_simple.Controllers
             {
                 return NotFound();
             }
-            return Ok(deleteBook); // Trả về đối tượng Domain Model đã xóa (hoặc chỉ Ok())
+            return Ok(deleteBook);
         }
+        #region Private methods 
+
+        private bool ValidateAddBook(AddBookRequestDTO addBookRequestDTO)
+        {
+            if (addBookRequestDTO == null)
+            {
+                ModelState.AddModelError(nameof(addBookRequestDTO), $"Please add book data");
+                return false;
+            }
+            if (addBookRequestDTO.AuthorIds == null || !addBookRequestDTO.AuthorIds.Any())
+            {
+                ModelState.AddModelError(nameof(addBookRequestDTO.AuthorIds),
+                    $"Book must have at least one author.");
+            }
+
+            if (ModelState.ErrorCount > 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        #endregion
     }
 }
