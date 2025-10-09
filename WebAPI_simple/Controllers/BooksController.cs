@@ -3,6 +3,8 @@ using WebAPI_simple.CustomActionFilter;
 using WebAPI_simple.Data;
 using WebAPI_simple.Models.DTO;
 using WebAPI_simple.Repositories;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI_simple.Controllers
 {
@@ -24,9 +26,16 @@ namespace WebAPI_simple.Controllers
         }
 
         [HttpGet("get-all-books")]
-        public IActionResult GetAll()
+        [Authorize(Roles = "Read,Write")]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllBooksQuery query)
         {
-            var allBooks = _bookRepository.GetAllBooks();
+            var allBooks = await _bookRepository.GetAllBooks(query);
+
+            if (allBooks == null || allBooks.Count == 0)
+            {
+                return NotFound("No books found matching the current filter, sort, or pagination criteria.");
+            }
+
             return Ok(allBooks);
         }
 
@@ -42,9 +51,8 @@ namespace WebAPI_simple.Controllers
             return Ok(bookWithIdDTO);
         }
         [ValidateModel]
-
-        [ValidateModel]
         [HttpPost("add-book")]
+        [Authorize(Roles = "Write")]
         public async Task<ActionResult> AddBook([FromBody] AddBookRequestDTO addBookRequestDTO)
         {
 
@@ -95,6 +103,7 @@ namespace WebAPI_simple.Controllers
         
 
         [HttpPut("update-book-by-id/{id}")]
+        [Authorize(Roles = "Write")]
         public IActionResult UpdateBookById(int id, [FromBody] AddBookRequestDTO bookDTO)
         {
             var updateBook = _bookRepository.UpdateBookById(id, bookDTO);
@@ -106,6 +115,7 @@ namespace WebAPI_simple.Controllers
         }
 
         [HttpDelete("delete-book-by-id/{id}")]
+        [Authorize(Roles = "Write")]
         public ActionResult DeleteBookById(int id)
         {
             var deleteBook = _bookRepository.DeleteBookById(id);

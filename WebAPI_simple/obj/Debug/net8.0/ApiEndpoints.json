@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "WebAPI_simple.Controllers.AuthorsController",
-    "Method": "AddAuthors",
+    "Method": "AddAuthor",
     "RelativePath": "api/Authors/add-author",
     "HttpMethod": "POST",
     "IsController": true,
@@ -17,7 +17,7 @@
   },
   {
     "ContainingType": "WebAPI_simple.Controllers.AuthorsController",
-    "Method": "DeleteBookById",
+    "Method": "DeleteAuthorById",
     "RelativePath": "api/Authors/delete-author-by-id/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -59,7 +59,7 @@
   },
   {
     "ContainingType": "WebAPI_simple.Controllers.AuthorsController",
-    "Method": "UpdateBookById",
+    "Method": "UpdateAuthorById",
     "RelativePath": "api/Authors/update-author-by-id/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -73,6 +73,22 @@
       {
         "Name": "authorDTO",
         "Type": "WebAPI_simple.Models.DTO.AuthorNoIdDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI_simple.Controllers.BookAuthorsController",
+    "Method": "AddBookAuthor",
+    "RelativePath": "api/book-authors",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WebAPI_simple.Models.DTO.AddBookAuthorRequestDTO",
         "IsRequired": true
       }
     ],
@@ -117,7 +133,38 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "Genre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsRead",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "SortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsSortAscending",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -231,6 +278,38 @@
       {
         "Name": "publisherDTO",
         "Type": "WebAPI_simple.Models.DTO.PublisherNoIdDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI_simple.Controllers.UserController",
+    "Method": "Login",
+    "RelativePath": "api/User/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequestDTO",
+        "Type": "WebAPI_simple.Models.DTO.LoginRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI_simple.Controllers.UserController",
+    "Method": "Register",
+    "RelativePath": "api/User/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerRequestDTO",
+        "Type": "WebAPI_simple.Models.DTO.RegisterRequestDTO",
         "IsRequired": true
       }
     ],
