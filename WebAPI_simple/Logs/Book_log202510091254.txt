@@ -1,0 +1,14 @@
+2025-10-09 12:54:20.581 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7159/api/User/Register - application/json 91
+2025-10-09 12:54:20.601 +07:00 [INF] Executing endpoint 'WebAPI_simple.Controllers.UserController.Register (WebAPI_simple)'
+2025-10-09 12:54:20.618 +07:00 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebAPI_simple.Models.DTO.RegisterRequestDTO) on controller WebAPI_simple.Controllers.UserController (WebAPI_simple).
+2025-10-09 12:54:20.631 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-10-09 12:54:20.632 +07:00 [INF] Executed action WebAPI_simple.Controllers.UserController.Register (WebAPI_simple) in 12.6613ms
+2025-10-09 12:54:20.633 +07:00 [INF] Executed endpoint 'WebAPI_simple.Controllers.UserController.Register (WebAPI_simple)'
+2025-10-09 12:54:20.634 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7159/api/User/Register - 400 null text/plain; charset=utf-8 53.0231ms
+2025-10-09 12:54:50.372 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7159/api/User/Register - application/json 87
+2025-10-09 12:54:50.382 +07:00 [INF] Executing endpoint 'WebAPI_simple.Controllers.UserController.Register (WebAPI_simple)'
+2025-10-09 12:54:50.382 +07:00 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebAPI_simple.Models.DTO.RegisterRequestDTO) on controller WebAPI_simple.Controllers.UserController (WebAPI_simple).
+2025-10-09 12:54:50.385 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-10-09 12:54:50.385 +07:00 [INF] Executed action WebAPI_simple.Controllers.UserController.Register (WebAPI_simple) in 2.0006ms
+2025-10-09 12:54:50.386 +07:00 [INF] Executed endpoint 'WebAPI_simple.Controllers.UserController.Register (WebAPI_simple)'
+2025-10-09 12:54:50.387 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7159/api/User/Register - 400 null text/plain; charset=utf-8 15.276ms

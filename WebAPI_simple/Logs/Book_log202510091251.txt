@@ -1,0 +1,11 @@
+2025-10-09 12:51:14.564 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7159/api/Books/get-all-books - null null
+2025-10-09 12:51:14.585 +07:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '10/9/2025 5:48:53 AM', Current time (UTC): '10/9/2025 5:51:14 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-10-09 12:51:14.587 +07:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '10/9/2025 5:48:53 AM', Current time (UTC): '10/9/2025 5:51:14 AM'.
+2025-10-09 12:51:14.589 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Read|Write)
+2025-10-09 12:51:14.590 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-10-09 12:51:14.591 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7159/api/Books/get-all-books - 401 0 null 27.481ms

@@ -140,3 +140,12 @@ D:\baitap\vs\WebAPI_simple\WebAPI_simple\obj\Debug\net8.0\refint\WebAPI_simple.d
 D:\baitap\vs\WebAPI_simple\WebAPI_simple\obj\Debug\net8.0\WebAPI_simple.pdb
 D:\baitap\vs\WebAPI_simple\WebAPI_simple\obj\Debug\net8.0\WebAPI_simple.genruntimeconfig.cache
 D:\baitap\vs\WebAPI_simple\WebAPI_simple\obj\Debug\net8.0\ref\WebAPI_simple.dll
+D:\baitap\vs\WebAPI_simple\WebAPI_simple\bin\Debug\net8.0\Serilog.dll
+D:\baitap\vs\WebAPI_simple\WebAPI_simple\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\baitap\vs\WebAPI_simple\WebAPI_simple\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\baitap\vs\WebAPI_simple\WebAPI_simple\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\baitap\vs\WebAPI_simple\WebAPI_simple\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\baitap\vs\WebAPI_simple\WebAPI_simple\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\baitap\vs\WebAPI_simple\WebAPI_simple\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\baitap\vs\WebAPI_simple\WebAPI_simple\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\baitap\vs\WebAPI_simple\WebAPI_simple\bin\Debug\net8.0\Serilog.Sinks.File.dll
