@@ -3,6 +3,8 @@ using WebAPI_simple.Data;
 using WebAPI_simple.Models.Domain;
 using WebAPI_simple.Models.DTO;
 using System.Threading.Tasks;
+using System.Linq;
+using System; // Cần thiết cho StringComparison
 
 namespace WebAPI_simple.Repositories
 {
@@ -15,35 +17,60 @@ namespace WebAPI_simple.Repositories
             _dbContext = dbContext;
         }
 
-        // Implement GetAllBooks
-        public List<BookWithAuthorAndPublisherDTO> GetAllBooks()
+        public async Task<List<BookWithAuthorAndPublisherDTO>> GetAllBooks(GetAllBooksQuery query)
         {
-            // Logic lấy dữ liệu từ DbContext và map sang DTO (như đã làm ở Phần 3 - Action GetAll())
-            var allBooks = _dbContext.Books
+            var booksQuery = _dbContext.Books
                 .Include(b => b.Publisher)
                 .Include(b => b.Book_Authors).ThenInclude(ba => ba.Author)
-                .Select(Books => new BookWithAuthorAndPublisherDTO()
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(query.Genre))
+            {
+                booksQuery = booksQuery.Where(b => b.Genre.Contains(query.Genre));
+            }
+            if (query.IsRead.HasValue)
+            {
+                booksQuery = booksQuery.Where(b => b.IsRead == query.IsRead.Value);
+            }
+
+            if (!string.IsNullOrWhiteSpace(query.SortBy))
+            {
+                if (query.SortBy.Equals("Title", StringComparison.OrdinalIgnoreCase))
                 {
-                    Id = Books.Id,
-                    Title = Books.Title,
-                    Description = Books.Description,
-                    IsRead = Books.IsRead,
-                    DateRead = Books.IsRead ? Books.DateRead.Value : null,
-                    Rate = Books.IsRead ? Books.Rate.Value : null,
-                    Genre = Books.Genre,
-                    CoverUrl = Books.CoverUrl,
-                    DateAdded = Books.DateAdded,
-                    PublisherName = Books.Publisher.Name,
-                    AuthorNames = Books.Book_Authors.Select(n => n.Author.FullName).ToList()
-                }).ToList();
+                    booksQuery = query.IsSortAscending ? booksQuery.OrderBy(b => b.Title) : booksQuery.OrderByDescending(b => b.Title);
+                }
+                else if (query.SortBy.Equals("DateAdded", StringComparison.OrdinalIgnoreCase))
+                {
+                    booksQuery = query.IsSortAscending ? booksQuery.OrderBy(b => b.DateAdded) : booksQuery.OrderByDescending(b => b.DateAdded);
+                }
+            }
+
+            var skipResults = (query.PageNumber - 1) * query.PageSize;
+
+            booksQuery = booksQuery.Skip(skipResults).Take(query.PageSize);
+
+            var allBooks = await booksQuery
+                .Select(book => new BookWithAuthorAndPublisherDTO()
+                {
+                    Id = book.Id,
+                    Title = book.Title,
+                    Description = book.Description,
+                    IsRead = book.IsRead,
+                    DateRead = book.IsRead ? book.DateRead.Value : null,
+                    Rate = book.IsRead ? book.Rate.Value : null,
+                    Genre = book.Genre,
+                    CoverUrl = book.CoverUrl,
+                    DateAdded = book.DateAdded,
+                    PublisherName = book.Publisher.Name,
+                    AuthorNames = book.Book_Authors.Select(n => n.Author.FullName).ToList()
+                })
+                .ToListAsync();
 
             return allBooks;
         }
 
-        // Implement GetBookById
         public BookWithAuthorAndPublisherDTO GetBookById(int id)
         {
-            // Logic lấy dữ liệu từ DbContext và map sang DTO (như đã làm ở Phần 3 - Action GetBookById)
             var bookWithDomain = _dbContext.Books
                 .Where(n => n.Id == id)
                 .Include(b => b.Publisher)
@@ -67,10 +94,9 @@ namespace WebAPI_simple.Repositories
             return bookWithIdDTO;
         }
 
-        // Implement AddBook
+        // Giữ lại các phương thức CRUD và Validation khác
         public AddBookRequestDTO AddBook(AddBookRequestDTO addBookRequestDTO)
         {
-            // Logic mapping DTO to Domain Model và thêm vào CSDL (như đã làm ở Phần 3 - Action AddBook)
             var bookDomainModel = new Book
             {
                 Title = addBookRequestDTO.Title,
@@ -85,7 +111,7 @@ namespace WebAPI_simple.Repositories
             };
 
             _dbContext.Books.Add(bookDomainModel);
-           
+
             foreach (var id in addBookRequestDTO.AuthorIds)
             {
                 var _book_author = new Book_Author()
@@ -99,15 +125,12 @@ namespace WebAPI_simple.Repositories
             return addBookRequestDTO;
         }
 
-        // Implement UpdateBookById
         public AddBookRequestDTO? UpdateBookById(int id, AddBookRequestDTO bookDTO)
         {
-            // Logic cập nhật thông tin sách (như đã làm ở Phần 3 - Action UpdateBookById)
             var bookDomain = _dbContext.Books.FirstOrDefault(n => n.Id == id);
 
             if (bookDomain != null)
             {
-                // Cập nhật thông tin sách
                 bookDomain.Title = bookDTO.Title;
                 bookDomain.Description = bookDTO.Description;
                 bookDomain.IsRead = bookDTO.IsRead;
@@ -119,7 +142,6 @@ namespace WebAPI_simple.Repositories
                 bookDomain.PublisherID = bookDTO.PublisherID;
                 _dbContext.SaveChanges();
 
-                // Xóa và Thêm mối quan hệ tác giả (như đã làm ở Phần 3 - Action UpdateBookById)
                 var authorDomain = _dbContext.Books_Authors.Where(a => a.BookId == id).ToList();
                 if (authorDomain != null)
                 {
@@ -140,31 +162,27 @@ namespace WebAPI_simple.Repositories
 
                 return bookDTO;
             }
-            return null; // Trả về null nếu không tìm thấy
+            return null;
         }
 
-        // Implement DeleteBookById
         public Book? DeleteBookById(int id)
         {
-            // Logic xóa sách (như đã làm ở Phần 3 - Action DeleteBookById)
             var bookDomain = _dbContext.Books.FirstOrDefault(n => n.Id == id);
 
             if (bookDomain != null)
             {
-                // Xóa các record liên quan trong Books_Authors (nếu cần)
                 var bookAuthors = _dbContext.Books_Authors.Where(a => a.BookId == id).ToList();
                 if (bookAuthors.Any())
                 {
                     _dbContext.Books_Authors.RemoveRange(bookAuthors);
                     _dbContext.SaveChanges();
                 }
-
-                // Xóa sách
                 _dbContext.Books.Remove(bookDomain);
                 _dbContext.SaveChanges();
             }
             return bookDomain;
         }
+
         public async Task<bool> ExistsAsync(int id)
         {
             return await _dbContext.Books.AnyAsync(b => b.Id == id);
@@ -172,7 +190,6 @@ namespace WebAPI_simple.Repositories
 
         public async Task<bool> IsTitleUniqueForPublisherAsync(string title, int publisherId)
         {
-
             return await _dbContext.Books.AnyAsync(b => b.Title == title && b.PublisherID == publisherId);
         }
     }
