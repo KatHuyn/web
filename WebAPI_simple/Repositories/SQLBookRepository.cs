@@ -2,6 +2,7 @@
 using WebAPI_simple.Data;
 using WebAPI_simple.Models.Domain;
 using WebAPI_simple.Models.DTO;
+using System.Threading.Tasks;
 
 namespace WebAPI_simple.Repositories
 {
@@ -84,8 +85,7 @@ namespace WebAPI_simple.Repositories
             };
 
             _dbContext.Books.Add(bookDomainModel);
-            _dbContext.SaveChanges();
-
+           
             foreach (var id in addBookRequestDTO.AuthorIds)
             {
                 var _book_author = new Book_Author()
@@ -94,9 +94,8 @@ namespace WebAPI_simple.Repositories
                     AuthorId = id
                 };
                 _dbContext.Books_Authors.Add(_book_author);
-                _dbContext.SaveChanges();
             }
-
+            _dbContext.SaveChanges();
             return addBookRequestDTO;
         }
 
@@ -165,6 +164,16 @@ namespace WebAPI_simple.Repositories
                 _dbContext.SaveChanges();
             }
             return bookDomain;
+        }
+        public async Task<bool> ExistsAsync(int id)
+        {
+            return await _dbContext.Books.AnyAsync(b => b.Id == id);
+        }
+
+        public async Task<bool> IsTitleUniqueForPublisherAsync(string title, int publisherId)
+        {
+
+            return await _dbContext.Books.AnyAsync(b => b.Title == title && b.PublisherID == publisherId);
         }
     }
 }
