@@ -1,0 +1,26 @@
+2025-10-09 13:10:52.276 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-09 13:10:52.316 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-10-09 13:10:52.318 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-09 13:10:52.319 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-10-09 13:10:52.332 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-10-09 13:10:52.341 +07:00 [INF] Applying migration '20251009061038_AddImageTable'.
+2025-10-09 13:10:52.373 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Images] (
+    [Id] int NOT NULL IDENTITY,
+    [FileName] nvarchar(max) NOT NULL,
+    [FileDescription] nvarchar(max) NULL,
+    [FileExtension] nvarchar(max) NOT NULL,
+    [FileSizeInBytes] bigint NOT NULL,
+    [FilePath] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Images] PRIMARY KEY ([Id])
+);
+2025-10-09 13:10:52.375 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20251009061038_AddImageTable', N'8.0.0');

@@ -60,6 +60,11 @@ builder.Services.AddScoped<IPublisherRepository, SQLPublisherRepository>();
 builder.Services.AddScoped<IBookRepository, SQLBookRepository>();
 builder.Services.AddScoped<IBookAuthorRepository, SQLBookAuthorRepository>();
 builder.Services.AddScoped<ITokenRepository, TokenRepository>(); // Đăng ký Token Repository
+// Đăng ký Image Repository
+builder.Services.AddScoped<IImageRepository, LocalImageRepository>();
+
+// Đăng ký IHttpContextAccessor (cần thiết cho LocalImageRepository để lấy URL)
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 // 1. Register AppDbContext (Main Database)
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
