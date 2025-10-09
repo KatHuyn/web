@@ -5,6 +5,7 @@ using WebAPI_simple.Models.DTO;
 using WebAPI_simple.Repositories;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging; // <--- Đã thêm
 
 namespace WebAPI_simple.Controllers
 {
@@ -17,18 +18,28 @@ namespace WebAPI_simple.Controllers
         private readonly IPublisherRepository _publisherRepository;
         private readonly IAuthorRepository _authorRepository;
 
-        public BooksController(AppDbContext dbContext, IBookRepository bookRepository, IPublisherRepository publisherRepository, IAuthorRepository authorRepository)
+        private readonly ILogger<BooksController> _logger;
+
+        public BooksController(AppDbContext dbContext, IBookRepository bookRepository,
+                               IPublisherRepository publisherRepository, IAuthorRepository authorRepository,
+                               ILogger<BooksController> logger)
         {
             _dbContext = dbContext;
             _bookRepository = bookRepository;
             _publisherRepository = publisherRepository;
             _authorRepository = authorRepository;
+            _logger = logger;
         }
 
         [HttpGet("get-all-books")]
         [Authorize(Roles = "Read,Write")]
         public async Task<IActionResult> GetAll([FromQuery] GetAllBooksQuery query)
         {
+
+            _logger.LogInformation("GetAll Book Action method was invoked (Info)");
+            _logger.LogWarning("This is a warning log (Warning)");
+            _logger.LogError("This is a error log (Error)");
+
             var allBooks = await _bookRepository.GetAllBooks(query);
 
             if (allBooks == null || allBooks.Count == 0)
@@ -100,7 +111,7 @@ namespace WebAPI_simple.Controllers
             var bookAdd = _bookRepository.AddBook(addBookRequestDTO);
             return Ok(bookAdd);
         }
-        
+
 
         [HttpPut("update-book-by-id/{id}")]
         [Authorize(Roles = "Write")]

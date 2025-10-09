@@ -1,0 +1,31 @@
+2025-10-09 12:50:10.787 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-10-09 12:50:10.867 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-10-09 12:50:10.978 +07:00 [INF] User profile is available. Using 'C:\Users\KatHuyn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-10-09 12:50:11.153 +07:00 [INF] Now listening on: https://localhost:7159
+2025-10-09 12:50:11.154 +07:00 [INF] Now listening on: http://localhost:5282
+2025-10-09 12:50:11.210 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-09 12:50:11.211 +07:00 [INF] Hosting environment: Development
+2025-10-09 12:50:11.212 +07:00 [INF] Content root path: D:\baitap\vs\WebAPI_simple\WebAPI_simple
+2025-10-09 12:50:13.167 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7159/_vs/browserLink - null null
+2025-10-09 12:50:13.167 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7159/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-09 12:50:13.229 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7159/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 65.2823ms
+2025-10-09 12:50:13.515 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 352.0232ms
+2025-10-09 12:50:13.545 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7159/swagger/v1/swagger.json - null null
+2025-10-09 12:50:13.576 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 30.9554ms
+2025-10-09 12:50:30.731 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7159/api/Books/get-all-books - null null
+2025-10-09 12:50:30.853 +07:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '10/9/2025 5:48:53 AM', Current time (UTC): '10/9/2025 5:50:30 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-10-09 12:50:30.873 +07:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '10/9/2025 5:48:53 AM', Current time (UTC): '10/9/2025 5:50:30 AM'.
+2025-10-09 12:50:30.882 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Read|Write)
+2025-10-09 12:50:30.888 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-10-09 12:50:30.889 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7159/api/Books/get-all-books - 401 0 null 157.5204ms

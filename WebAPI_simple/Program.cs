@@ -6,10 +6,19 @@ using WebAPI_simple.Data;
 using WebAPI_simple.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
+using Serilog; 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("Logs/Book_log.txt", rollingInterval: RollingInterval.Minute)
+    .MinimumLevel.Information() 
+    .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
@@ -105,6 +114,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Logic Seed Roles (Khắc phục lỗi 500 trước đó)
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -121,8 +132,6 @@ using (var scope = app.Services.CreateScope())
         }
     }
 }
-// ----------------------------------------
-// =======================================================
 
 app.UseHttpsRedirection();
 
